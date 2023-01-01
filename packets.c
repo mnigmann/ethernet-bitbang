@@ -717,7 +717,7 @@ void packet_3(uint8_t* dest_mac, uint8_t *dest_ip, uint8_t* icmp_head) {
     prepare_value(0, (uint8_t*)(&ip_check), 2, 0);
     prepare_value(3, dest_ip, 4, 0);
     prepare_value(8, (uint8_t*)(&icmp_check), 2, icmp_head[0] & 0x01);
-    prepare_value(11, icmp_head, 20, (uint8_t)(icmp_check & 0x80));
+    prepare_value(11, icmp_head, 20, (uint8_t)((icmp_check >> 8) & 0x80));
     prepare_value(32, dest_mac, 6, 0x80);
     
     
